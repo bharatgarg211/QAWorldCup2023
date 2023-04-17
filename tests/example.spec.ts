@@ -32,8 +32,8 @@ const workbook = new Excel.Workbook();
 const content = await workbook.xlsx.readFile(filePath);
 
 const worksheet = content.worksheets[1];
-const rowStartIndex = 4;
-const numberOfRows = worksheet.rowCount - 3;
+const rowStartIndex = 2;
+const numberOfRows = worksheet.rowCount - 1;
 
 const rows = worksheet.getRows(rowStartIndex, numberOfRows) ?? [];
 
@@ -55,7 +55,7 @@ const players = rows.map((row): Player => {
   Paybackperiod: Number(getCellValue(row,14)),
   }
 });
-
+players
 //Script
   await page.goto('https://www.nagarro.com/');
   await page.pause();
