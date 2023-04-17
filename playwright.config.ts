@@ -11,6 +11,17 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+   /* Maximum time full test suite can run for. */
+   globalTimeout: 30 * 60 * 1000,
+   /* Maximum time one test can run for. */
+   timeout: 10 * 60 * 1000,
+   expect: {
+     /**
+      * Maximum time expect() should wait for the condition to be met.
+      * For example in `await expect(locator).toHaveText();`
+      */
+     timeout: 30000,
+   },
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
